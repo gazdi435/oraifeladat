@@ -1,0 +1,50 @@
+﻿<Window x:Class="OrganizationFeladat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrganizationFeladat"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="dgAdatok" AutoGenerateColumns="False" Margin="5" Grid.Row="0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Szervezet neve" Binding="{Binding Name}" Width="120"/>
+                <DataGridTextColumn Header="ország" Binding="{Binding Country}" Width="120"/>
+                <DataGridTextColumn Header="alapítás éve" Binding="{Binding Founded}" Width="120"/>
+                <DataGridTextColumn Header="ágazat" Binding="{Binding Industry}" Width="120"/>
+                <DataGridTextColumn Header="alkalmazottak száma" Binding="{Binding EmployeesNumber}" Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="1" Width="300" HorizontalAlignment="Right">
+            <ComboBox x:Name="cbOrszag" SelectionChanged="cbOrszag_SelectionChanged" Width="100" Height="30" VerticalAlignment="Top" Margin="50"/>
+            <ComboBox x:Name="cbAlapitas"  SelectionChanged="cbOrszag_SelectionChanged" Width="100" Height="30" VerticalAlignment="Bottom"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Width="300" HorizontalAlignment="Left" Orientation="Horizontal">
+            <!--<Label Content="Csak ország szerint" HorizontalAlignment="Center"/>
+            <RadioButton x:Name="rbCsakOrszag" HorizontalAlignment="Center" Margin="0 20 0 0">Csak az ország szerint</RadioButton>
+            <RadioButton x:Name="rbCsakEv" HorizontalAlignment="Center" Margin="0 20 0 0">Csak az év szerint</RadioButton>
+            <RadioButton x:Name="rbMindketto" HorizontalAlignment="Center" Margin="0 20 0 0">Mindkettő szerint</RadioButton>
+            <RadioButton x:Name="rbEgyiksem" HorizontalAlignment="Center" Margin="0 20 0 0">Csak az ország szerint</RadioButton>-->
+            <!--<CheckBox HorizontalAlignment="Center" x:Name="cbKelle"/>-->
+            <Label Content="Szűrés:" VerticalAlignment="Center" Width="150"/>
+
+            <ComboBox x:Name="cbSzures" Width="150" Height="30" VerticalAlignment="Center" SelectionChanged="cbOrszag_SelectionChanged">
+                <ComboBoxItem Content="Csak az ország szerint"/>
+                <ComboBoxItem Content="Csak az év szerint"/>
+                <ComboBoxItem Content="Mindkettő szerint"/>
+                <ComboBoxItem Content="Ne szürjön"/>
+            </ComboBox>
+            
+            
+        </StackPanel>
+    </Grid>
+</Window>
